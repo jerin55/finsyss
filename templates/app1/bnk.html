@@ -1,0 +1,485 @@
+
+    {% extends 'app1/base.html' %}
+    {% block body %}
+        {% load static %}
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                box-sizing: border-box;
+            }
+          
+            .form1{
+                background-color: white;
+                box-shadow: 2px 2px 2px rgba(200,200,200,);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                width:100%;
+                position: absolute;
+            }
+            
+            form{
+            
+                width: 100%;
+                /* display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center; */
+                height:auto;
+                background-color: rgba(0,0,0,0.0);
+            }
+    
+            input,select,textarea{
+               padding: 10px 20px;
+                width: 100%;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.4);
+               
+            }
+            .top input{
+                padding: 10px 20px;
+                width: 90%;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.4);
+    
+            }
+           
+    
+            form div{
+                width: 100%;
+            }
+            button{
+                padding: 6px 30px;
+                border-radius: 10px;
+                border: 4px solid rgb(0, 0, 0,0);
+                color: white;
+                background-color: rgb(103, 175, 220);
+            }
+            button:hover{
+                
+                
+                color: white;
+                background-color: rgb(26, 102, 153);
+            }
+            .top{
+                display: flex; 
+            }
+            .top .left1{
+                width:33.333%;
+               
+                border-bottom: 1px solid rgba(128, 128, 128, 0.6);
+                display: flex;
+                flex-direction: column;
+                
+                padding: 30px;
+                
+    
+            }
+            .top .right1{
+                width: 20%;
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                background-color: rgba(128, 128, 128, 0.09);
+                
+                padding: 25px;
+                
+                
+            }
+            .left1 div{
+                width: 100%;
+                
+                padding: 3px 0;
+            }
+            
+            .bottom{
+                display: flex;
+            }
+            .bottom .left2{
+                width: 33.333%;
+                padding: 30px;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+               
+            }
+            .bottom .right3{
+                width: 30%;
+                padding: 30px;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+            }
+            
+            .bottom .right2{
+                width: 33.333%;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                
+                
+                
+            }
+            .bottom .center{
+                width: 33.333%;
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                
+                
+                
+            }
+            .left2 div,.right2 div,.center div{
+                width: 100%;
+                padding: 3px 0;
+            }
+            
+    p{
+        font-size: 13px;
+    }
+    .flexy{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .close {
+        position: absolute;
+        top: 3px;
+        right: 8px;
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+        transform: rotate(45deg);
+        cursor: pointer;
+        text-decoration: none;
+        
+    }
+    .close:hover{
+        color: yellow;
+    }
+    .hidden{
+        display: none;
+          }
+       .show{
+        display: block;
+           }
+            .hi{
+                display: none;
+            }
+            .od{
+                display: none;
+            }
+            .assets{
+                display: none;
+            }
+            .gst{
+                display: none;
+            }
+            .bo{
+                display: none;
+            }
+            .goo{
+                display: none;
+            }
+            .ser{
+                display: none;
+            }
+            .dirx{
+                display: none;
+            }
+            .stdet{
+                display: none;
+            }
+            .appli{
+                display: none;
+            }
+            .notapp{
+                display: none;
+            }
+            .gd{
+                display: none;
+            }
+            .form-popup {
+        visibility: hidden;       
+        position: fixed;
+        top: 150px;
+        right: 27px;
+        background-color: rgb(216, 232, 238); 
+        border: 1px solid #f1f1f1;
+        z-index: 9;
+        width: 190px;
+        overflow-y: auto;
+        
+       
+      
+      }
+        </style>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        
+<div class="row container-fluid p-0 mx-0 "  >
+    <div class="col-sm-2 m-0 p-0"></div>
+  
+<!--        <a href="javascript:history.go(-1);" class="close">+</a> -->
+   
+    <div class="container card radius-15">
+
+        <div class="card radius-15">
+            <div class="card-body">
+                <div class="card-title">
+                    <center><h2 class="mb-0">BANKING</h2></center>
+                </div>
+                <hr/>
+            </div>
+        </div>
+        
+
+<form class="" autocomplete="off" action="" method="post" >
+    {% csrf_token %}
+    
+    
+
+   
+    
+    <div class="row container-fluid  ">
+        <div class="col-sm-6 p-0" > <label for="Under">All Accounts</label>
+       
+      
+        <div class=" form-group" >
+            <fieldset>
+                <select class="under form-control" id="select1"   name="under" id="under" >
+                    
+                    <option  value="yes"></option>
+                    {% for g in g %}
+                    <option value="Bank">{{ g.name }}</option>
+                    {% endfor %}
+                   
+                      
+                 
+             
+                
+                </select>
+            </fieldset>
+        
+        
+            
+           
+           
+
+        </div> 
+    </div><br><br><br><br>
+   
+<div class="bottom ">
+   
+    <div class="hidden" id="pDetails">
+        <div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Account detail</th>
+                        <th>Uncategorized</th>
+                        <th>Amound</th>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                          
+                        </td>
+                        <td>
+                           
+                        </td>
+                        <td>
+                           
+                        </td>
+                        
+                    </tr>
+                </tbody>
+
+    
+            </table>
+        
+        
+   
+
+</div></div>
+
+
+
+    <div class="hi" id="pDetail">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Account detail</th>
+                    <th>Uncategorized</th>
+                    <th>Amound</th>
+                    
+                </tr>
+                <tr>
+                    <td >
+                     
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                     
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td name="name" id="name">
+                         
+                     
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td id="">
+                       10000
+                    </td>
+                    
+                </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+  
+
+
+
+    <div class="od" id="odac">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Account detail</th>
+                    <th>Uncategorized</th>
+                    <th>Amound</th>
+                    
+                </tr>
+                <tr>
+                    <td>
+                      
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                       
+                    </td>
+                    
+                </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+
+   
+
+          
+
+    </div>
+        
+        
+    
+</div>
+
+
+
+
+
+
+</div>
+
+        
+        
+    
+</div>
+
+
+
+
+
+
+
+    
+
+    <script>
+
+$('.under').change(function(){
+            var responseID = $(this).val();
+            if(responseID =="Bank Account"){
+                $('#pDetails').removeClass("hidden");
+                $('#pDetails').addClass("show");
+           }else{
+                $('#pDetails').removeClass("show");
+                $('#pDetails').addClass("hidden");
+            }
+            if(responseID =="Bank"){
+                $('#pDetail').removeClass("hi");
+                $('#pDetail').addClass("show");
+           }else{
+                $('#pDetail').removeClass("show");
+                $('#pDetail').addClass("hi");
+            }
+            if(responseID =="Bank OCC A/c"){
+                $('#odac').removeClass("od");
+                $('#odac').addClass("show");
+           }else{
+                $('#odac').removeClass("show");
+                $('#odac').addClass("od");
+            }
+           
+            
+            
+        });
+
+
+        $(document).ready(function () {
+            $('#select1').on('change', function () {
+                select = $('#select1').val();
+                $.ajax({
+                    type: "GET",
+                    url: "{% url 'getbank' %}",
+                    data: {id: select1}
+                }).done(function (response) {
+                    var json_data = JSON.parse(response);
+                    for (key in json_data) {
+                        document.getElementById('name').value = json_data[key]['name'];
+                        document.getElementById('description').value = json_data[key]['description'];
+                        
+                    }
+                }).fail(function () {
+                    alert("failed");
+                })
+            })
+        })
+
+
+
+
+       
+    </script>
+
+    
+    
+
+   
+    {% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'app1/base.html' %}
+{% block body %}
+    {% load static %}
+    <style>
+        #tab1{
+            display: none;
+        }
+
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <div class="page-content">
+        <div class="card radius-15">
+            <div class="card-body">
+                <div class="card-title">
+                    <center><h2 class="mb-0">BANKING</h2></center>
+                </div>
+                <hr/>
+            </div>
+        </div>
+        <div class="card radius-15">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <div class="card-body">
+                            <center><p></p></center>
+                            <form method="post" action="{% url 'reconcreate' %}">
+                                {% csrf_token %}
+                                
+                                <div class="container" id="two">
+                                    <label for="acc">Account</label>
+                                            <select name="account" id="acc" onclick="showDiv('four', this)"
+                                                    class=" yes custom-select-md form-control w-75" required>
+                                                <option></option>
+                                               
+                                                    <option value="Pettycash">Petty cash</option>
+                                                    <option>Undeposited funds</option>
+                                               
+                                            </select>
+                                    <h5 class="mt-5 mb-3 text-grey"></h5>
+                                
+                                </div>
+                                
+                                        </div>
+                                    </div>
+                                </div><br><br><br>
+                                <hr>
+                                <div class="">
+                                    <center><h2 class="mb-0"> </h2></center>
+                                </div>
+                                <div class="tab" id="tab1" style="max-height: 70vh; width: 100%;background-color:rgba(0,0,0,0.4); ">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Account detail</th>
+                                            <th>Uncategorized</th>
+                                            <th>Amound</th>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              
+                                            </td>
+                                            <td>
+                                               
+                                            </td>
+                                            <td>
+                                               
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+
+                        
+                                </table>
+                            </div>
+
+                                <hr>
+                                
+
+
+
+                                <center>
+                                   
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+         $('.yes').change(function(){
+            var responseID = $(this).val();
+            if(responseID == "Pettycash"){
+                $('#tab1').removeClass("tab");
+                $('#tab1').addClass("show");
+            }
+            else{
+                $('#tab1').removeClass("show");
+                $('#tab1').addClass("tab");
+            }
+
+        })
+
+
+        
+       
+    </script>
+
+{% endblock %}
