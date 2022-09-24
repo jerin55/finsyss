@@ -156,20 +156,7 @@
         align-items: center;
         justify-content: center;
     }
-    .close {
-        position: absolute;
-        top: 3px;
-        right: 8px;
-        font-size: 25px;
-        color: rgb(255, 255, 255);
-        transform: rotate(45deg);
-        cursor: pointer;
-        text-decoration: none;
-        
-    }
-    .close:hover{
-        color: yellow;
-    }
+   
     .hidden{
         display: none;
           }
@@ -231,8 +218,17 @@
        
       }
       a:hover{
-        color: black;
+        transform:scale(1.1);
+                z-index:2;
+                color: black;
+                
       }
+      .aa:hover{
+        background-color:rgb(192, 192, 25) ;
+        border-radius: 5px;
+        
+      }
+     
         </style>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
          <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -248,208 +244,186 @@
         <div class="card radius-15">
             <div class="card-body">
                 <div class="card-title">
-                    <center><h2 class="mb-0">BANKING</h2></center>
+                    <h5 >Account  : {{ bk.name }}</h5><br>
+                    <h7>Balance Amount : {{ bk.balance }}</h7>
+                  
+               
                 </div>
                 <hr/>
             </div>
+           
         </div>
+
+
         
-
-<form class="" autocomplete="off" action="" method="post" >
-    {% csrf_token %}
-    
-    
-
-   
-    
-    <div class="row container-fluid  ">
-        <div class="col-sm-6 p-0" > <label for="Under">All Accounts</label>
-       
-      
-        <div class=" form-group" >
-            <fieldset>
-                <select class="under form-control" id="select"   name="under" id="under" >
-                    
-                    <option  value="yes"></option>
-                  
-                    <option value="Bank">Bank</option>
-                    <option value="Petty cash">Petty cash</option>
-                    <option value="Undeposited funds">Undeposited funds</option>
-                  
-                   
-                      
-                 
-             
-                
-                </select>
-            </fieldset>
-        
-        
-            
-           
-           
-
-        </div> 
-    </div><br><br><br><br>
-   
-<div class="bottom ">
-   
-    <div class="hidden" id="pDetails">
-        <div>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th  style="text-align: center;">Account detail</th>
-                        <th  style="text-align: center;">Account Type</th>
-                        <th  style="text-align: center;">Amount</th>
-                        
-                    </tr>
-                    <tr>
-                        <tr>
-                            <td  style="text-align: center;">
-                             
-                            </td>
-                            <td  style="text-align: center;">
-                               
-                            </td>
-                            <td  style="text-align: center;">
-                             
-                            </td>
-                            
-                        </tr>
-                    </tr>
-                    {% for h in h %}
-                    <tr class="rw">
-                       
-                        <td  style="text-align: center;">
-                            <a href="{% url 'bnk1' h.accountsid   %}">{{ h.name }}</a> 
-                        </td>
-                        <td  style="text-align: center;">
-                           {{ h.acctype }}
-                        </td>
-                        <td  style="text-align: center;">
-                           {{ h.balance }}
-                        </td>
-                       
-                        
-                    </tr>
-                    {% endfor %}
-                </tbody>
-
-    
-            </table>
-        
-        
-   
-
-</div></div>
-
-
-
-    <div class="hi" id="pDetail">
-
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th  style="text-align: center;">Account detail</th>
-                    <th  style="text-align: center;">Account Type</th>
-                    <th  style="text-align: center;">Amount</th>
-                    
-                    
-                </tr>
-                
-                <tr >
-                    <td  style="text-align: center;">
-                     
-                    </td>
-                    <td  style="text-align: center;">
-                       
-                    </td>
-                    <td  style="text-align: center;">
-                     
-                    </td>
-                    
-                </tr  class="rw">
-                {% for g in g %}
-                <tr class="rw" >
-                    <td name="name" id="name"  style="text-align: center;">
-                         
-                        <a href="{% url 'bnk1' g.accountsid   %}">{{ g.name }}</a> 
-                    </td>
-                    <td style="text-align: center;">
-                       {{ g.acctype }}
-                    </td>
-                    <td  style="text-align: center;">
-                       {{ g.balance }}
-                    </td>
-                    
-                </tr>
-                {% endfor %}
-            </tbody>
-
-
-        </table>
-    </div>
-  
-
-
-
-    <div class="od" id="odac">
-
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th  style="text-align: center;">Account detail</th>
-                    <th  style="text-align: center;">Account Type</th>
-                    <th  style="text-align: center;">Amount</th>
-                    
-                </tr>
-                <tr>
-                    <tr>
-                        <td  style="text-align: center;">
-                         
-                        </td>
-                        <td  style="text-align: center;">
+     
+<div class="modal fade" id="newaccmodel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #213b52;">
+            <div class="modal-header">
+                <h3 class="m-3">Expense</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card p-3 m-3">
+                    <form method="post" action="{% url 'createaccount' %}">
+                        {% csrf_token %}
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="acctyp">Expense Account</label>
+                               <select>
+                                <option></option>
+                               </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name">*Vendor</label>
+                                <select class="form-control">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="detype">Date </label>
+                               <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="description">Amount</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Description</label>
+                        <textarea class="form-control mt-2" name="Type details" cols="20" class="form-control"
+                                  rows="10" style="font-size: small;" ></textarea>
+                            </div>
                            
-                        </td>
-                        <td  style="text-align: center;">
-                         
-                        </td>
-                        
-                    </tr>
-                </tr >
-                {% for i in i %}
-                <tr class="rw" >
-                    <td  style="text-align: center;">
-                       <a href="{% url 'bnk1' i.accountsid   %}">{{ i.name }}</a> 
-                      
-                    </td>
-                    <td  style="text-align: center;">
-                       {{ i.acctype }}
-                    </td>
-                    <td  style="text-align: center;">
-                        {{ i.balance }}
-                       
-                    </td>
-                    
-                </tr>
-                {% endfor %}
-            </tbody>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-check">
+                                    <div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label>Tax</label>
+                                   <select class="form-control">
+                                    <option></option>
+                                   </select>
+                                </div>
+                                <div class="mt-2">
+                                   <label>#Reference</label>
+                                   <input type="text" class="form-control">
+                                </div>
+                                <div class="mt-2">
+                                    <label></label>
+                                    <input type="file" class="form-control">
+                                 </div>
+                                
+                                    <div class="mt-2">
+                                        <label for="balance">Customer</label>
+                                        <input type="text" name="balance" id="balance"
+                                               class="form-control">
+                                    </div>
+                                   
+                               
 
-
-        </table>
+                            </div>
+                        </div>
+                        <div class="mt-3" style="text-align: center;">
+                            
+                            <button type="submit" class="btn btn-outline-info">Save and
+                                close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-   
-
-          
-
-    </div>
-        
-        
-    
 </div>
 
+
+
+
+        <div style="text-align: right;" class="dropdown ">
+            <button  class=" btn btn-info dropdown-toggle" href="" data-toggle="dropdown" data-flip="false"  >Add Transactions</button>
+            <div class="dropdown-menu PerfectScrollbar " style="background-color:white;">
+                <h5  style="color: grey;"  >Money Out</h5>
+                <hr style="background-color: grey;">
+                <div >
+                <a href="" class="btn" style="color: black;"  data-target="#newaccmodel"
+                data-toggle="modal" >Expense</a><br>
+                <a href="" class="btn" style="color: black;" >Vendor Advance </a><br>
+                <a href="" class="btn" style="color: black;" >Sales Return</a><br>
+                <a href="" class="btn" style="color: black;" >Card Payment </a><br>
+                
+            </div><br>
+            <h5  style="color: grey;"  >Money In</h5>
+            <hr style="background-color: grey;">
+            <div >
+            <a href="" class="btn" style="color: black;" >Expense</a><br>
+            <a href="" class="btn" style="color: black;" >Vendor Advance </a><br>
+            <a href="" class="btn" style="color: black;" >Sales Return</a><br>
+            <a href="" class="btn" style="color: black;" >Card Payment </a><br>
+            
+            
+           
+        </div>
+             
+            </div>
+        </div>
+        <hr><br><br>
+
+       
+       
+
+
+        <div>
+            
+            <table class="table">
+                <tbody>
+                <tr style="text-align: center; background-color: rgba(51, 51, 75, 0.829);" class="">
+                    <th>Date </th>
+                    <th>Name</th>                   
+                    <th>Deposits</th>
+                    <th>Withdrawal</th>
+                    <th class="aa"><a  href="">All Transactions</a></th>
+                    <th></th>
+                </tr>
+                <tr style="text-align:center ;" class="rw">
+                    <td>{{ bk.asof }}</td>
+                    <td>{{ bk.name }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+
+        
+
+
+    
+    
+
+   
+    
+   
 
 
 

@@ -52,10 +52,9 @@
                                                             <label for="acctyp">Account Type</label>
                                                             <select name="acctype" id="select1"
                                                                     class="custom-select-md form-control w-100">
-                                                               
-                                                                    <option value="{{ prodcut.Pid }}">Bank</option>
-                                                                    <option>Petty cash</option>
-                                                                    <option>Undeposited</option>
+                                                                    {% for product in product %}
+                                                                    <option value="{{ product.Pid }}">{{ product.Pname }}</option>
+                                                                    {% endfor %}
                                                                 
                                                             </select>
                                                         </div>

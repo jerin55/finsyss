@@ -869,13 +869,13 @@ def gocoa(request):
     try:
         cmp1 = company.objects.get(id=request.session["uid"])
        
-        
+        product=ProductModel.objects.all()
         account1s = accounts1.objects.filter(cid=cmp1)
         toda = date.today()
         tod = toda.strftime("%Y-%m-%d")
         return render(request, 'app1/coa.html',
                       {'tod': tod,   'cmp1': cmp1,
-                       'account1s': account1s})
+                       'account1s': account1s,'product':product},)
     except:
         return redirect('gocoa')
 
@@ -25590,34 +25590,15 @@ def deletestyle(request, customizeid):
 
 
 def bnnk(request):
-    g=accounts.objects.all()
-    return render(request,'app1/bnk.html',{'g':g})
+    g=accounts.objects.filter(acctype='Bank')
+    h=accounts.objects.filter(acctype='Petty cash')
+    i=accounts.objects.filter(acctype='Undeposited funds')
+    context={'g':g,'h':h,'i':i}
+    return render(request,'app1/bnk.html',context)
 
 
-def getbank(request):
-    
-    cmp1 = company.objects.get(id=request.session['uid'])
-    id = request.GET.get('id')
-    x = id.split()
-    x.append(" ")
-    a = x[0]
-    b = x[1]
-    if x[2] is not None:
-       
-        acc = accounts.objects.get(name=a, description=b, cid=cmp1)
-        list = []
-        dict = {'accountsid': acc.accountsid, 'acctype': acc.acctype, 'detype': acc.detype,
-                'name': acc.name, 'description': acc.description, 'gst': acc.gst,
-                'deftaxcode': acc.deftaxcode,
-                'balance': acc.balance, 'asof': acc.asof}
-        list.append(dict)
-    else:
-        custobject = accounts.objects.get(name=a, description=b, cid=cmp1)
-        list = []
-        dict = {'accountsid': acc.accountsid, 'acctype': acc.acctype, 'detype': acc.detype,
-                'name': acc.name, 'description': acc.description, 'gst': acc.gst,
-                'deftaxcode': acc.deftaxcode,
-                'balance': acc.balance, 'asof': acc.asof}
-        list.append(dict)
-    return JsonResponse(json.dumps(list), content_type="application/json", safe=False)
 
+def bnk1(request,pk):
+    bk=accounts.objects.get(accountsid=pk)
+    context={'bk':bk}
+    return render(request,"app1/bnk1.html",context)

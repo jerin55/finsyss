@@ -352,5 +352,5 @@ urlpatterns = [
     re_path(r'^editstyle/updatestyle/(?P<customizeid>\d+)$',views.updatestyle,name='updatestyle'),
     re_path(r'^deletestyle/(?P<customizeid>\d+)$',views.deletestyle,name='deletestyle'),
     re_path(r'^bnnk',views.bnnk,name='bnnk'),
-    re_path(r'^getbank$',views.getbank,name='getbank')
+    re_path(r'^bnk1/(?P<pk>\d+)$',views.bnk1,name='bnk1')
 ]
