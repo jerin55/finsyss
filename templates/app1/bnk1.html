@@ -3,216 +3,16 @@
     {% block body %}
         {% load static %}
         <style>
-            *{
-                padding: 0;
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-                box-sizing: border-box;
-            }
-          
-            .form1{
-                background-color: white;
-                box-shadow: 2px 2px 2px rgba(200,200,200,);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                border: none;
-                width:100%;
-                position: absolute;
-            }
-            
-            form{
-            
-                width: 100%;
-                /* display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center; */
-                height:auto;
-                background-color: rgba(0,0,0,0.0);
-            }
-    
-            input,select,textarea{
-               padding: 10px 20px;
-                width: 100%;
-                border: none;
-                background-color: rgba(255, 255, 255, 0.4);
-               
-            }
-            .top input{
-                padding: 10px 20px;
-                width: 90%;
-                border: none;
-                background-color: rgba(255, 255, 255, 0.4);
-    
-            }
-           
-    
-            form div{
-                width: 100%;
-            }
-            button{
-                padding: 6px 30px;
-                border-radius: 10px;
-                border: 4px solid rgb(0, 0, 0,0);
-                color: white;
-                background-color: rgb(103, 175, 220);
-            }
-            button:hover{
-                
-                
-                color: white;
-                background-color: rgb(26, 102, 153);
-            }
-            .top{
-                display: flex; 
-            }
-            .top .left1{
-                width:33.333%;
-               
-                border-bottom: 1px solid rgba(128, 128, 128, 0.6);
-                display: flex;
-                flex-direction: column;
-                
-                padding: 30px;
-                
-    
-            }
-            .top .right1{
-                width: 20%;
-                display: flex;
-                flex-direction: column;
-                align-items:center;
-                background-color: rgba(128, 128, 128, 0.09);
-                
-                padding: 25px;
-                
-                
-            }
-            .left1 div{
-                width: 100%;
-                
-                padding: 3px 0;
-            }
-            
-            .bottom{
-                display: flex;
-            }
-            .bottom .left2{
-                width: 33.333%;
-                padding: 30px;
-                
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-               
-            }
-            .bottom .right3{
-                width: 30%;
-                padding: 30px;
-                
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-            }
-            
-            .bottom .right2{
-                width: 33.333%;
-                padding: 30px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                
-                
-                
-                
-            }
-            .bottom .center{
-                width: 33.333%;
-                padding: 30px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                
-                
-                
-                
-            }
-            .left2 div,.right2 div,.center div{
-                width: 100%;
-                padding: 3px 0;
-            }
-            
-    p{
-        font-size: 13px;
-    }
-    .flexy{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
    
-    .hidden{
-        display: none;
-          }
+   
+   #pDetails{
+    display: none;
+   }
        .show{
         display: block;
            }
-            .hi{
-                display: none;
-            }
-            .od{
-                display: none;
-            }
-            .assets{
-                display: none;
-            }
-            .gst{
-                display: none;
-            }
-            .bo{
-                display: none;
-            }
-            .goo{
-                display: none;
-            }
-            .ser{
-                display: none;
-            }
-            .dirx{
-                display: none;
-            }
-            .stdet{
-                display: none;
-            }
-            .appli{
-                display: none;
-            }
-            .notapp{
-                display: none;
-            }
-            .gd{
-                display: none;
-            }
-            .form-popup {
-        visibility: hidden;       
-        position: fixed;
-        top: 150px;
-        right: 27px;
-        background-color: rgb(216, 232, 238); 
-        border: 1px solid #f1f1f1;
-        z-index: 9;
-        width: 190px;
-        overflow-y: auto;
-        
-       
-      
-      }
+
+            
       .rw:hover{
         background-color: rgb(192, 192, 25);
        
@@ -223,15 +23,28 @@
                 color: black;
                 
       }
+
+
+
+
+      
       .aa:hover{
         background-color:rgb(192, 192, 25) ;
         border-radius: 5px;
         
       }
+      #overvi{
+        display: none;
+      }
      
         </style>
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+            
+         </script>
+        
+
          <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+         <script src="https://kit.fontawesome.com/3902587416.js" crossorigin="anonymous"></script>
 
         
 <div class="row container-fluid p-0 mx-0 "  >
@@ -256,7 +69,7 @@
 
 
         
-     
+
 <div class="modal fade" id="newaccmodel">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background-color: #213b52;">
@@ -268,26 +81,42 @@
             </div>
             <div class="modal-body">
                 <div class="card p-3 m-3">
-                    <form method="post" action="{% url 'createaccount' %}">
+                    <form method="post" action="">
                         {% csrf_token %}
                         <div class="row mt-2 mb-2">
                             <div class="col-md-6">
                                 <label for="acctyp">Expense Account</label>
-                               <select>
-                                <option></option>
+                               <select class="form-control">
+                                <option>Advertising and Marketing</option>
+                                <option>Audit Fee</option>
+                                <option>Automobile Expense</option>
+                                <option>Bad Debt</option>
+                                <option>Bank Fee And Charges </option>
+                                <option>Automobile charges</option>
+                                <option>Deprieciation Expenses</option>
+                                <option>Documentation Charges</option>
+                                <option>Electricity Expenses </option>
+                                <option>Food Expenses</option>
+                                <option>IT And Internet charges</option>
+                                <option>Labour Charges</option>
+                                <option>Miscellaneous Expenses</option>
+                                <option>Printing And Stationary</option>
                                </select>
                             </div>
+                            
                             <div class="col-md-6">
                                 <label for="name">*Vendor</label>
                                 <select class="form-control">
                                     <option></option>
                                 </select>
                             </div>
+
                         </div>
                         <div class="row mt-2 mb-2">
                             <div class="col-md-6">
-                                <label for="detype">Date </label>
-                               <input type="date" class="form-control">
+                                <a href="" data-dismiss="modal" data-target="#newaccmodelbank"
+                                data-toggle="modal" class="btn btn-info ">+</a>
+                                <a>Add New Account</a>
                             </div>
                             <div class="col-md-6">
                                 <label for="description">Amount</label>
@@ -302,8 +131,11 @@
                             </div>
                            
                             <div class="col-md-6 mt-2">
-                                <div class="form-check">
+                                <div >
                                     <div>
+                                      
+                                    <label for="detype">Date </label>
+                                    <input type="date" class="form-control">
                                         
                                     </div>
                                 </div>
@@ -316,7 +148,10 @@
                                 <div class="mt-2">
                                    <label>#Reference</label>
                                    <input type="text" class="form-control">
-                                </div>
+                                </div><br>
+                                <div class="mt-2">
+                                    
+                                 </div>
                                 <div class="mt-2">
                                     <label></label>
                                     <input type="file" class="form-control">
@@ -345,29 +180,689 @@
     </div>
 </div>
 
+<div class="modal fade" id="newaccmodelvendor">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #213b52;">
+            <div class="modal-header">
+                <h3 class="m-3">Vendor Payment</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card p-3 m-3">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="acctyp">Expense Account</label>
+                               <select class="form-control">
+                                <option>Advertising and Marketing</option>
+                                <option>Audit Fee</option>
+                                <option>Automobile Expense</option>
+                                <option>Bad Debt</option>
+                                <option>Bank Fee And Charges </option>
+                                <option>Automobile charges</option>
+                                <option>Deprieciation Expenses</option>
+                                <option>Documentation Charges</option>
+                                <option>Electricity Expenses </option>
+                                <option>Food Expenses</option>
+                                <option>IT And Internet charges</option>
+                                <option>Labour Charges</option>
+                                <option>Miscellaneous Expenses</option>
+                                <option>Printing And Stationary</option>
+                               </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="name">*Vendor</label>
+                                <select class="form-control">
+                                    <option></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <a href=""  data-dismiss="modal"  data-target="#vendorcreation"
+                                data-toggle="modal"  class="btn btn-info  ">+</a>
+                                <a>Add New Vendor</a>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="description">Amount</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Description</label>
+                        <textarea class="form-control mt-2" name="Type details" cols="20" class="form-control"
+                                  rows="10" style="font-size: small;" ></textarea>
+                            </div>
+                           
+                            <div class="col-md-6 mt-2">
+                                <div >
+                                    <div>
+                                      
+                                    <label for="detype">Date </label>
+                                    <input type="date" class="form-control">
+                                        
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label>Tax</label>
+                                   <select class="form-control">
+                                    <option></option>
+                                   </select>
+                                </div>
+                                <div class="mt-2">
+                                   <label>#Reference</label>
+                                   <input type="text" class="form-control">
+                                </div><br>
+                                <div class="mt-2">
+                                    
+                                 </div>
+                                <div class="mt-2">
+                                    <label></label>
+                                    <input type="file" class="form-control">
+                                 </div>
+                                
+                                    <div class="mt-2">
+                                        <label for="balance">Customer</label>
+                                        <input type="text" name="balance" id="balance"
+                                               class="form-control">
+                                    </div>
+                                   
+                               
+
+                            </div>
+                        </div>
+                        <div class="mt-3" style="text-align: center;">
+                            
+                            <button type="submit" class="btn btn-outline-info">Save and
+                                close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newaccmodelcustomer">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #213b52;">
+            <div class="modal-header">
+                <h3 class="m-3">Customer Payment</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card p-3 m-3">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="acctyp">Expense Account</label>
+                               <select class="form-control">
+                                <option>Advertising and Marketing</option>
+                                <option>Audit Fee</option>
+                                <option>Automobile Expense</option>
+                                <option>Bad Debt</option>
+                                <option>Bank Fee And Charges </option>
+                                <option>Automobile charges</option>
+                                <option>Deprieciation Expenses</option>
+                                <option>Documentation Charges</option>
+                                <option>Electricity Expenses </option>
+                                <option>Food Expenses</option>
+                                <option>IT And Internet charges</option>
+                                <option>Labour Charges</option>
+                                <option>Miscellaneous Expenses</option>
+                                <option>Printing And Stationary</option>
+                               </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="name">*Vendor</label>
+                                <select class="form-control">
+                                    <option></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <a href="" data-dismiss="modal"  data-target="#customercreation"
+                                data-toggle="modal"  class="btn btn-info ">+</a>
+                                <a>Add New Customer</a>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <label for="description">Amount</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Description</label>
+                        <textarea class="form-control mt-2" name="Type details" cols="20" class="form-control"
+                                  rows="10" style="font-size: small;" ></textarea>
+                            </div>
+                           
+                            <div class="col-md-6 mt-2">
+                                <div >
+                                    <div>
+                                      
+                                    <label for="detype">Date </label>
+                                    <input type="date" class="form-control">
+                                        
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label>Tax</label>
+                                   <select class="form-control">
+                                    <option></option>
+                                   </select>
+                                </div>
+                                <div class="mt-2">
+                                   <label>#Reference</label>
+                                   <input type="text" class="form-control">
+                                </div><br>
+                                <div class="mt-2">
+                                    
+                                 </div>
+                                <div class="mt-2">
+                                    <label></label>
+                                    <input type="file" class="form-control">
+                                 </div>
+                                
+                                    <div class="mt-2">
+                                        <label for="balance">Customer</label>
+                                        <input type="text" name="balance" id="balance"
+                                               class="form-control">
+                                    </div>
+                                   
+                               
+
+                            </div>
+                        </div>
+                        <div class="mt-3" style="text-align: center;">
+                            
+                            <button type="submit" class="btn btn-outline-info">Save and
+                                close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="newaccmodelbank">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #213b52;">
+            <div class="modal-header">
+                <h3 class="m-3">Account</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card p-3 m-3">
+                    <form method="post" action="{% url 'createaccount' %}">
+                        {% csrf_token %}
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="acctyp">Account Type</label>
+                                <select name="acctype" id="select1"
+                                        class="custom-select-md form-control w-100">
+                                        {% for product in product %}
+                                        <option value="{{ product.Pid }}">{{ product.Pname }}</option>
+                                        {% endfor %}
+                                    
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name">*Name</label>
+                                <input name="name" id="name"
+                                       class="custom-select-md form-control w-100">
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="detype">*Detail Type</label>
+                                <select name="detype" 
+                                        class="custom-select-md form-control w-100">
+                                   
+                                        <option >Bank</option>
+                                        <option>Petty cash</option>
+                                        <option>Undeposited</option>
+                                    
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="description">Description</label>
+                                <input type="text" name="description" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                        <textarea class="form-control mt-2" name="Type details" cols="20"
+                                  rows="10" style="font-size: small;" disabled>Use Cash and Cash Equivalents to track cash or assets that can be converted into cash immediately. For example, marketable securities and Treasury bills.</textarea>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <div class="form-check">
+                                    <div>
+                                        <input class="form-check-input" name="issub"
+                                               type="checkbox"
+                                               value="is sub account"
+                                               id="issub">
+                                        <label class="form-check-label" for="issub">
+                                            Is sub-account
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <select name="gst" id="gst"
+                                            class="custom-select-md form-control w-100"
+                                            disabled="disabled">
+                                        <option value="Deferred CGST">Deferred CGST</option>
+                                        <option value="Deferred GST Input Credit">Deferred
+                                            GST Input Credit
+                                        </option>
+                                        <option value="Deferred IGST">Deferred IGST</option>
+                                        <option value="Deferred Krishi Kalyan Cess
+                                    Input Credit">Deferred Krishi Kalyan Cess
+                                            Input Credit
+                                        </option>
+                                        <option value="Deferred Service Tax Input
+                                    Credit">Deferred Service Tax Input
+                                            Credit
+                                        </option>
+                                        <option value="Deferred SGST">Deferred SGST</option>
+                                        <option value="Deferred VAT Input Credit">Deferred
+                                            VAT
+                                            Input
+                                            Credit
+                                        </option>
+                                        <option value="GST Refund">GST Refund</option>
+                                        <option value="Inventory Asset">Inventory Asset
+                                        </option>
+                                        <option value="Paid Insurance">Paid Insurance
+                                        </option>
+                                        <option value="Service Tax Refund">Service Tax
+                                            Refund
+                                        </option>
+                                        <option value="TDS Receivable">TDS Receivable
+                                        </option>
+                                        <option value="Uncategorised Asset">Uncategorised
+                                            Asset
+                                        </option>
+                                        <option value="Accumulated Depreciation">Accumulated
+                                            Depreciation
+                                        </option>
+                                        <option value="Buildings and Improvements">Buildings
+                                            and
+                                            Improvements
+                                        </option>
+                                        <option value="Furniture and Equipment">Furniture
+                                            and
+                                            Equipment
+                                        </option>
+                                        <option value="Land">Land</option>
+                                        <option value="Leasehold Improvements">Leasehold
+                                            Improvements
+                                        </option>
+                                        <option value="CGST Payable">CGST Payable</option>
+                                        <option value="CST Payable">CST Payable</option>
+                                        <option value="CST Suspense">CST Suspense</option>
+                                        <option value="GST Payable">GST Payable</option>
+                                        <option value="GST Suspense">GST Suspense</option>
+                                        <option value="IGST Payable">IGST Payable</option>
+                                        <option value="Input CGST">Input CGST</option>
+                                        <option value="Input CGST Tax RCM">Input CGST Tax
+                                            RCM
+                                        </option>
+                                        <option value="Input IGST">Input IGST</option>
+                                        <option value="Input IGST Tax RCM">Input IGST Tax
+                                            RCM
+                                        </option>
+                                        <option value="Input Krishi Kalyan Cess">Input
+                                            Krishi
+                                            Kalyan
+                                            Cess
+                                        </option>
+                                        <option value="Input Krishi Kalyan Cess
+                                    RCM">Input Krishi Kalyan Cess
+                                            RCM
+                                        </option>
+                                        <option value="Input Service Tax">Input Service Tax
+                                        </option>
+                                        <option value="Input Service Tax RCM">Input Service
+                                            Tax
+                                            RCM
+                                        </option>
+                                        <option value="Input SGST">Input SGST</option>
+                                        <option value="Input SGST Tax RCM">Input SGST Tax
+                                            RCM
+                                        </option>
+                                        <option value="Input VAT 14%">Input VAT 14%</option>
+                                        <option value="Input VAT 4%">Input VAT 4%</option>
+                                        <option value="Input VAT 5%">Input VAT 5%</option>
+                                        <option value="Krishi Kalyan Cess Payable">Krishi
+                                            Kalyan
+                                            Cess Payable
+                                        </option>
+                                        <option value="Krishi Kalyan Cess
+                                    Suspense">Krishi Kalyan Cess
+                                            Suspense
+                                        </option>
+                                        <option value="Output CGST">Output CGST</option>
+                                        <option value="Output CGST Tax RCM">Output CGST Tax
+                                            RCM
+                                        </option>
+                                        <option value="Output CST 2%">Output CST 2%</option>
+                                        <option value="Output IGST">Output IGST</option>
+                                        <option value="Output IGST Tax RCM">Output IGST Tax
+                                            RCM
+                                        </option>
+                                        <option value="Output Krishi Kalyan Cess">Output
+                                            Krishi
+                                            Kalyan Cess
+                                        </option>
+                                        <option value="Output Krishi Kalyan Cess
+                                    RCM">Output Krishi Kalyan Cess
+                                            RCM
+                                        </option>
+                                        <option value="Output Service Tax">Output Service
+                                            Tax
+                                        </option>
+                                        <option value="Output Service Tax RCM">Output
+                                            Service
+                                            Tax
+                                            RCM
+                                        </option>
+                                        <option value="Output SGST">Output SGST</option>
+                                        <option value="Output SGST Tax RCM">Output SGST Tax
+                                            RCM
+                                        </option>
+                                        <option value="Output VAT 14%">Output VAT 14%
+                                        </option>
+                                        <option value="Output VAT 4%">Output VAT 4%</option>
+                                        <option value="Output VAT 5%">Output VAT 5%</option>
+                                        <option value="Service Tax Payable">Service Tax
+                                            Payable
+                                        </option>
+                                        <option value="Service Tax Suspense">Service Tax
+                                            Suspense
+                                        </option>
+                                        <option value="SGST Payable">SGST Payable</option>
+                                        <option value="SGST Suspense">SGST Suspense</option>
+                                        <option value="Swachh Bharat Cess Payable">Swachh
+                                            Bharat
+                                            Cess Payable
+                                        </option>
+                                        <option value="Swachh Bharat Cess
+                                    Suspense">Swachh Bharat Cess
+                                            Suspense
+                                        </option>
+                                        <option value="TDS Payable">TDS Payable</option>
+                                        <option value="VAT Payable">VAT Payable</option>
+                                        <option value="VAT Suspense">VAT Suspense</option>
+                                        <option value="Opening Balance">Opening Balance
+                                        </option>
+                                        <option value="Equity">Equity</option>
+                                    </select>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="deftaxcode">Default Tax Code</label>
+                                    <select name="deftaxcode" id="deftaxcode"
+                                            class="custom-select-md form-control w-100">
+                                        <option value="0">Choose</option>
+                                        <option value="18.0% IGST">18.0% IGST</option>
+                                        <option value="14.00% ST">14.00% ST</option>
+                                        <option value="0% IGST">0% IGST</option>
+                                        <option value="Out of Scope">Out of Scope</option>
+                                        <option value="0% GST">0% GST</option>
+                                        <option value="14.5% ST">14.5% ST</option>
+                                        <option value="14.0% VAT">14.0% VAT</option>
+                                        <option value="6.0% IGST">6.0% IGST</option>
+                                        <option value="28.0% IGST">28.0% IGST</option>
+                                        <option value="15.0% ST">15.0% ST</option>
+                                        <option value="28.0% GST">28.0% GST</option>
+                                        <option value="12.0% GST">12.0% GST</option>
+                                        <option value="18.0% GST">18.0% GST</option>
+                                        <option value="3.0% GST">3.0% GST</option>
+                                        <option value="0.2% IGST">0.2% IGST</option>
+                                        <option value="5.0% GST">5.0% GST</option>
+                                        <option value="6.0% GST">6.0% GST</option>
+                                        <option value="0.2% GST">0.2% GST</option>
+                                        <option value="Exempt IGST">Exempt IGST</option>
+                                        <option value="3.0% IGST">3.0% IGST</option>
+                                        <option value="4.0% VAT">4.0% VAT</option>
+                                        <option value="5.0% IGST">5.0% IGST</option>
+                                        <option value="12.36% ST">12.36% ST</option>
+                                        <option value="5.0% VAT">5.0% VAT</option>
+                                        <option value="Exempt GST">Exempt GST</option>
+                                        <option value="12.0% IGST">12.0% IGST</option>
+                                        <option value="2.0% CST">2.0% CST</option>
+                                    </select>
+                                </div>
+                                <div class="row mt-2" style="display: inline-flex;">
+                                    <div class="col-md-6">
+                                        <label for="balance">Balance</label>
+                                        <input type="text" name="balance" id="balance"
+                                               class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="asof">as of</label>
+                                        <input type="text" name="asof" id="asof"
+                                               class="form-control" value="{{ tod }}"
+                                               required>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            
+                            <button type="submit" class="btn btn-outline-light">Save and
+                                close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="vendorcreation">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #213b52;">
+            <div class="modal-header">
+                <h3 class="m-3">Vendor Details</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card p-3 m-3">
+                    <form method="post" action="{% url 'createaccount' %}">
+                        {% csrf_token %}
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="acctyp">Title</label>
+                             <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name">Company</label>
+                                <input name="name" id="name"
+                                       class=" form-control w-100">
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="detype">First Name</label>
+                               <input type="text" class="form-control">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="description">Last Name </label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                        <textarea class="form-control mt-2" name="Type details" cols="20"
+                                  rows="10" style="font-size: small;" ></textarea>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                               
+                                <div class="mt-2">
+                                    
+                                </div>
+                                <div class="mt-2">
+                                    <label for="deftaxcode">E Mail</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                                <div class="row mt-2" style="display: inline-flex;">
+                                    <div class="col-md-6">
+                                        <label for="balance">Website</label>
+                                        <input type="text" name="" 
+                                               class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="asof">Mobile</label>
+                                        <input type="number" name="" 
+                                               class="form-control"
+                                               >
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            
+                            <button type="submit" class="btn btn-outline-info">Save and
+                                close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="customercreation">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #213b52;">
+            <div class="modal-header">
+                <h3 class="m-3">Customer Details</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card p-3 m-3">
+                    <form method="post" action="{% url 'createaccount' %}">
+                        {% csrf_token %}
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="acctyp">Title</label>
+                             <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name">Company</label>
+                                <input name="name" id="name"
+                                       class=" form-control w-100">
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-6">
+                                <label for="detype">First Name</label>
+                               <input type="text" class="form-control">
+                                    
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="description">Last Name </label>
+                                <input type="text" name="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                        <textarea class="form-control mt-2" name="Type details" cols="20"
+                                  rows="10" style="font-size: small;" ></textarea>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                               
+                                <div class="mt-2">
+                                    
+                                </div>
+                                <div class="mt-2">
+                                    <label for="deftaxcode">E Mail</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                                <div class="row mt-2" style="display: inline-flex;">
+                                    <div class="col-md-6">
+                                        <label for="balance">Website</label>
+                                        <input type="text" name="" 
+                                               class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="asof">Mobile</label>
+                                        <input type="number" name="" 
+                                               class="form-control"
+                                               >
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            
+                            <button type="submit" class="btn btn-outline-info">Save and
+                                close
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
 
         <div style="text-align: right;" class="dropdown ">
             <button  class=" btn btn-info dropdown-toggle" href="" data-toggle="dropdown" data-flip="false"  >Add Transactions</button>
             <div class="dropdown-menu PerfectScrollbar " style="background-color:white;">
-                <h5  style="color: grey;"  >Money Out</h5>
-                <hr style="background-color: grey;">
+                
                 <div >
                 <a href="" class="btn" style="color: black;"  data-target="#newaccmodel"
                 data-toggle="modal" >Expense</a><br>
-                <a href="" class="btn" style="color: black;" >Vendor Advance </a><br>
-                <a href="" class="btn" style="color: black;" >Sales Return</a><br>
-                <a href="" class="btn" style="color: black;" >Card Payment </a><br>
+              
+                <a href="" class="btn" style="color: black;" data-target="#newaccmodelvendor"
+                data-toggle="modal" >Vendor Payment </a><br>
+                <a href="" class="btn" style="color: black;" data-target="#newaccmodelcustomer"
+                data-toggle="modal" >Customer Payment</a><br>
+               
                 
-            </div><br>
-            <h5  style="color: grey;"  >Money In</h5>
-            <hr style="background-color: grey;">
-            <div >
-            <a href="" class="btn" style="color: black;" >Expense</a><br>
-            <a href="" class="btn" style="color: black;" >Vendor Advance </a><br>
-            <a href="" class="btn" style="color: black;" >Sales Return</a><br>
-            <a href="" class="btn" style="color: black;" >Card Payment </a><br>
+        
             
             
            
@@ -379,9 +874,19 @@
 
        
        
-
-
-        <div>
+<div class="container">
+    <table class="table">
+        <tbody>
+            <tr style="text-align: center;">
+                <th class="aa"><div  onclick="sho()" style="cursor: pointer;">Overview</div></th>
+                <th class="aa"> <div class="huh" onclick="shw()" style="cursor: pointer;" > All Transactions  </div></th>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+        <div class="over" id="overvi" class="container">
             
             <table class="table">
                 <tbody>
@@ -390,7 +895,7 @@
                     <th>Name</th>                   
                     <th>Deposits</th>
                     <th>Withdrawal</th>
-                    <th class="aa"><a  href="">All Transactions</a></th>
+                    
                     <th></th>
                 </tr>
                 <tr style="text-align:center ;" class="rw">
@@ -413,6 +918,67 @@
             </tbody>
             </table>
         </div>
+        <div id="pDetails" class="container"  >
+            <table class="table" >
+                <tbody>
+                    <tr style="text-align:center ;background-color: rgba(51, 51, 75, 0.829);" class="rw">
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Deposits</th>
+                        <th>Withdrawal</th>
+                        <th>Running Balance</th>
+                    </tr>
+                    <tr  style="text-align: center;">
+                        <td>{{ bk.asof }}</td>
+                        <td></td>
+                        <td>100</td>
+                        <td>20000</td>
+                        <td>15000</td>
+                    </tr>
+                </tr>
+                <tr  style="text-align: center;">
+                    <td>{{ bk.asof }}</td>
+                    <td> </td>
+                    <td>100</td>
+                    <td>30000</td>
+                    <td>15000</td>
+                </tr>
+            </tr>
+            <tr  style="text-align: center;">
+                <td>{{ bk.asof }}</td>
+                <td></td>
+                <td>100</td>
+                <td>10000</td>
+                <td>15000</td>
+            </tr>
+        </tr>
+        <tr  style="text-align: center;">
+            <td>{{ bk.asof }}</td>
+            <td></td>
+            <td>100</td>
+            <td>50000</td>
+            <td>25000</td>
+        </tr>
+    </tr>
+    <tr  style="text-align: center;">
+        <td>{{ bk.asof }}</td>
+        <td></td>
+        <td>100</td>
+        <td>10000</td>
+        <td>15000</td>
+    </tr>
+</tr>
+<tr  style="text-align: center;">
+    <td>{{ bk.asof }}</td>
+    <td></td>
+    <td>100</td>
+    <td>10000</td>
+    <td>15000</td>
+</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
         
@@ -473,7 +1039,19 @@ $('.under').change(function(){
             
             
         });
+        function shw() {
+            document.getElementById("overvi").style.display="none";
+            
+    document.getElementById("pDetails").style.display="block";
+    
+}
+function sho() {
+    document.getElementById("pDetails").style.display="none";
+            document.getElementById("overvi").style.display="block";
+            
+        }
 
+ 
 
       
 

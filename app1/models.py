@@ -1,3 +1,5 @@
+from ftplib import MAXLINE
+from operator import truediv
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -1083,3 +1085,14 @@ class customize(models.Model):
     fonts = models.CharField(max_length=255, default='', blank=True)
     lastedited = models.CharField(default=timezone.now, max_length=255, blank=True)
     selected = models.CharField(max_length=255, default='', blank=True)
+
+
+class Transaction(models.Model):
+    exac=models.CharField(max_length=255,blank=True)   
+    vendor=models.CharField(max_length=255,blank=True)
+    tdate=models.DateField()
+    amount=models.IntegerField()
+    description=models.CharField(max_length=255,blank=True)
+    tax=models.IntegerField(blank=True)
+    refenrence=models.CharField(max_length=255,blank=True)
+    customer=models.CharField(max_length=255,blank=True)

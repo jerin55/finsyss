@@ -14,6 +14,7 @@ import json
 from django.http.response import JsonResponse
 from django.contrib.auth.decorators import login_required
 import itertools
+from .models import *
 
 
 
@@ -25602,3 +25603,31 @@ def bnk1(request,pk):
     bk=accounts.objects.get(accountsid=pk)
     context={'bk':bk}
     return render(request,"app1/bnk1.html",context)
+
+def trans(request):
+            exac=request.POST['exac']
+            vendor=request.POST['vendor']
+            tdate=request.POST['tdate']
+            amount=request.POST['amount']
+            description=request.POST['description']
+            tax=request.POST['tax']
+            refenrence=request.POST['refenrence']
+            customer=request.POST['customer']
+
+            tran = Transaction(
+                exac=exac,
+                vendor=vendor,
+                tdate=tdate,
+                amount=amount,
+                description=description,
+                tax=tax,
+                refenrence=refenrence,
+                customer=customer
+
+            )
+            tran.save()
+            return redirect('bnk1')
+
+
+def addvendor(request):
+    return render(request,"app1/addvendor.html")
