@@ -25601,7 +25601,7 @@ def bnnk(request):
 
 def bnk1(request,pk):
     bk=accounts.objects.get(accountsid=pk)
-    context={'bk':bk}
+    context={'bk':bk,}
     return render(request,"app1/bnk1.html",context)
 
 def trans(request):
@@ -25631,3 +25631,25 @@ def trans(request):
 
 def addvendor(request):
     return render(request,"app1/addvendor.html")
+
+def vendorcr(request):
+    if request.method == 'POST':
+        title=request.POST['title']
+        frname=request.POST['frname']
+        lsname=request.POST['lsname']
+        company=request.POST['company']
+        email=request.POST['email']
+        website=request.POST['website']
+        mobile=request.POST['mobile']
+
+        vd=vendor(
+            title=title,
+            frname=frname,
+            lsname=lsname,
+            company=company,
+            email=email,
+            website=website,
+            mobile=mobile
+        )
+        vd.save()
+        return redirect('bnnk')

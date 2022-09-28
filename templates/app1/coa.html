@@ -54,7 +54,13 @@
                                                                     class="custom-select-md form-control w-100">
                                                                     {% for product in product %}
                                                                     <option value="{{ product.Pid }}">{{ product.Pname }}</option>
+                                                                    <hr style="background-color: white;">
                                                                     {% endfor %}
+                                                                    
+                                                                    <option>Stock(New)</option>
+                                                                    <option>Cash(New)</option>
+                                                                    <option></option>
+                                                                   
                                                                 
                                                             </select>
                                                         </div>
@@ -65,17 +71,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mt-2 mb-2">
-                                                        <div class="col-md-6">
-                                                            <label for="detype">*Detail Type</label>
-                                                            <select name="detype" 
-                                                                    class="custom-select-md form-control w-100">
-                                                               
-                                                                    <option >Bank</option>
-                                                                    <option>Petty cash</option>
-                                                                    <option>Undeposited</option>
-                                                                
-                                                            </select>
-                                                        </div>
+                                                        
                                                         <div class="col-md-6">
                                                             <label for="description">Description</label>
                                                             <input type="text" name="description" class="form-control">

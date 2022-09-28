@@ -1096,3 +1096,12 @@ class Transaction(models.Model):
     tax=models.IntegerField(blank=True)
     refenrence=models.CharField(max_length=255,blank=True)
     customer=models.CharField(max_length=255,blank=True)
+
+class vendor(models.Model):
+    title=models.CharField(max_length=255,blank=True)
+    frname=models.CharField(max_length=255,blank=True)
+    lsname=models.CharField(max_length=255,blank=True)
+    company=models.CharField(max_length=255,blank=True)
+    email=models.EmailField(blank=True)
+    website=models.CharField(max_length=255,blank=True)
+    mobile=models.IntegerField(blank=True)

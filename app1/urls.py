@@ -354,4 +354,6 @@ urlpatterns = [
     re_path(r'^bnnk',views.bnnk,name='bnnk'),
     re_path(r'^bnk1/(?P<pk>\d+)$',views.bnk1,name='bnk1'),
     re_path(r'^addvendor',views.addvendor,name='addvendor'),
+    re_path(r'^vendorcr',views.vendorcr,name='vendorcr')
+
 ]
