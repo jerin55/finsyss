@@ -52,14 +52,25 @@
                                                             <label for="acctyp">Account Type</label>
                                                             <select name="acctype" id="select1"
                                                                     class="custom-select-md form-control w-100">
-                                                                    {% for product in product %}
-                                                                    <option value="{{ product.Pid }}">{{ product.Pname }}</option>
-                                                                    <hr style="background-color: white;">
-                                                                    {% endfor %}
-                                                                    
+                                                                   
+                                                                    <option >Account Receivable</option>
+                                                                    <option>Current Assets</option>
+                                                                    <option>Bank</option>
+                                                                    <option>Fixed Assets</option>
+                                                                    <option>Non-Current Assets</option>
+                                                                    <option>Accounts Payable</option>
+                                                                    <option>Credit Card</option>
+                                                                    <option>Current Liabilities</option>
+                                                                    <option>Non-Current Liabilities</option>
+                                                                    <option>Equity</option>
+                                                                    <option>Income</option>
+                                                                    <option>Other Incomes</option>
+                                                                    <option>Cost Of Goods</option>
+                                                                    <option>Expenses</option>
+                                                                    <option>Other Expenses</option>
                                                                     <option>Stock(New)</option>
                                                                     <option>Cash(New)</option>
-                                                                    <option></option>
+                                                                    
                                                                    
                                                                 
                                                             </select>

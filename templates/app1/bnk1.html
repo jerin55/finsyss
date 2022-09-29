@@ -180,6 +180,9 @@
     </div>
 </div>
 
+
+
+
 <div class="modal fade" id="newaccmodelvendor">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background-color: #213b52;">
@@ -1611,6 +1614,14 @@ $('.under').change(function(){
                 $('#odac').removeClass("show");
                 $('#odac').addClass("od");
             }
+            if(responseID =="Undeposited funds"){
+                $('#ex1').removeClass("ex");
+                $('#ex1').addClass("show");
+           }else{
+                $('#ex1').removeClass("show");
+                $('#ex1').addClass("ex");
+            }
+           
            
             
             

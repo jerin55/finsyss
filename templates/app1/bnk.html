@@ -233,6 +233,39 @@
       a:hover{
         color: black;
       }
+      .bnk{
+        display: none;
+      }
+      .fx{
+        display: none;
+      }
+      .nca{
+        display: none;
+      }
+      .apy{
+        display: none;
+      }
+      .cd{
+        display: none;
+      }
+      .ncl{
+        display: none;
+      }
+      .eq{
+        display: none;
+      }
+      .inc{
+        display: none;
+      }
+      .oi{
+        display: none;
+      }
+      .cg{
+        display: none;
+      }
+      .ex{
+        display: none
+          }
         </style>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
          <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -243,7 +276,7 @@
   
 <!--        <a href="javascript:history.go(-1);" class="close">+</a> -->
    
-    <div class="container card radius-15">
+    <div class="container card radius-15" >
 
         <div class="card radius-15">
             <div class="card-body">
@@ -268,13 +301,24 @@
       
         <div class=" form-group" >
             <fieldset>
-                <select class="under form-control" id="select"   name="under" id="under" >
+                <select class="under form-control" id="select"   name="under" id="under"  >
                     
                     <option  value="yes"></option>
                   
+                    <option value="Current Liabilities">Current Liabilities</option>
+                    <option value="Account Receivable">Account Receivable</option>
+                    <option value="Current Assets">Current Assets</option>
                     <option value="Bank">Bank</option>
-                    <option value="Petty cash">Petty cash</option>
-                    <option value="Undeposited funds">Undeposited funds</option>
+                    <option value="Fixed Assets">Fixed Assets</option>
+                    <option value="Non-Current Assets">Non-Current Assets</option>
+                    <option value="Accounts Payable">Accounts Payable</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Non-Current Liabilities">Non-Current Liabilities</option>
+                    <option value="Equity">Equity</option>
+                    <option value="Income">Income</option>
+                    <option value="Other Incomes">Other Incomes</option>
+                    <option value="Cost Of Goods">Cost Of Goods</option>
+                    <option value="Expenses">Expenses</option>
                   
                    
                       
@@ -440,9 +484,507 @@
         </table>
     </div>
 
-   
 
+    <div class="bnk" id="bnk1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for bnk in bnk %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' bnk.accountsid   %}">{{ bnk.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ bnk.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ bnk.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="fx" id="fx1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for fx in fx %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' fx.accountsid   %}">{{ fx.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ fx.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ fx.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="nca" id="nca1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for nca in nca %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' nca.accountsid   %}">{{ nca.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ nca.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ nca.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+ 
+    <div class="apy" id="apy1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for apy in apy %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' apy.accountsid   %}">{{ apy.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ apy.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ apy.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+   
+    <div class="cd" id="cd1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for cd in cd %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' cd.accountsid   %}">{{ cd.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ cd.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ cd.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
           
+
+    <div class="ncl" id="ncl1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for ncl in ncl1 %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' ncl.accountsid   %}">{{ ncl.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ ncl.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ ncl.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="eq" id="eq1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for eq in eq %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' eq.accountsid   %}">{{ eq.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ eq.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ eq.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="inc" id="inc1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for inc in inc %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' inc.accountsid   %}">{{ inc.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ inc.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ inc.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+    <div class="oi" id="oi1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for oi in oi %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' oi.accountsid   %}">{{ oi.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ oi.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ oi.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="cg" id="cg1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for cg in cg %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' cg.accountsid   %}">{{ cg.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ cg.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ cg.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+
+    <div class="ex" id="ex1">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th  style="text-align: center;">Account detail</th>
+                    <th  style="text-align: center;">Account Type</th>
+                    <th  style="text-align: center;">Amount</th>
+                    
+                    
+                </tr>
+                
+                <tr >
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    <td  style="text-align: center;">
+                       
+                    </td>
+                    <td  style="text-align: center;">
+                     
+                    </td>
+                    
+                </tr  class="rw">
+                {% for ex in ex %}
+                <tr class="rw" >
+                    <td name="name" id="name"  style="text-align: center;">
+                         
+                        <a href="{% url 'bnk1' ex.accountsid   %}">{{ ex.name }}</a> 
+                    </td>
+                    <td style="text-align: center;">
+                       {{ ex.acctype }}
+                    </td>
+                    <td  style="text-align: center;">
+                       {{ ex.balance }}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+
 
     </div>
         
@@ -474,27 +1016,105 @@
 
 $('.under').change(function(){
             var responseID = $(this).val();
-            if(responseID =="Petty cash"){
+            if(responseID =="Account Receivable"){
                 $('#pDetails').removeClass("hidden");
                 $('#pDetails').addClass("show");
            }else{
                 $('#pDetails').removeClass("show");
                 $('#pDetails').addClass("hidden");
             }
-            if(responseID =="Bank"){
+            if(responseID =="Current Liabilities"){
                 $('#pDetail').removeClass("hi");
                 $('#pDetail').addClass("show");
            }else{
                 $('#pDetail').removeClass("show");
                 $('#pDetail').addClass("hi");
             }
-            if(responseID =="Undeposited funds"){
+            if(responseID =="Current Assets"){
                 $('#odac').removeClass("od");
                 $('#odac').addClass("show");
            }else{
                 $('#odac').removeClass("show");
                 $('#odac').addClass("od");
             }
+            if(responseID =="Bank"){
+                $('#bnk1').removeClass("bnk");
+                $('#bnk1').addClass("show");
+           }else{
+                $('#bnk1').removeClass("show");
+                $('#bnk1').addClass("bnk");
+            }
+            if(responseID =="Fixed Assets"){
+                $('#fx1').removeClass("fx");
+                $('#fx1').addClass("show");
+           }else{
+                $('#fx1').removeClass("show");
+                $('#fx1').addClass("fx");
+            }
+            if(responseID =="Non-Current Assets"){
+                $('#nca1').removeClass("nca");
+                $('#nca1').addClass("show");
+           }else{
+                $('#nca1').removeClass("show");
+                $('#nca1').addClass("nca");
+            }
+            if(responseID =="Accounts Payable"){
+                $('#apy1').removeClass("apy");
+                $('#apy1').addClass("show");
+           }else{
+                $('#apy1').removeClass("show");
+                $('#apy1').addClass("apy");
+            }
+            if(responseID =="Credit Card"){
+                $('#cd1').removeClass("cd");
+                $('#cd1').addClass("show");
+           }else{
+                $('#cd1').removeClass("show");
+                $('#cd1').addClass("cd");
+            }
+            if(responseID =="Non-Current Liabilities"){
+                $('#ncl1').removeClass("ncl");
+                $('#ncl1').addClass("show");
+           }else{
+                $('#ncl1').removeClass("show");
+                $('#ncl1').addClass("ncl");
+            }
+            if(responseID =="Equity"){
+                $('#eq1').removeClass("eq");
+                $('#eq1').addClass("show");
+           }else{
+                $('#eq1').removeClass("show");
+                $('#eq1').addClass("eq");
+            }
+            if(responseID =="Income"){
+                $('#inc1').removeClass("inc");
+                $('#inc1').addClass("show");
+           }else{
+                $('#inc1').removeClass("show");
+                $('#inc1').addClass("inc");
+            }
+            if(responseID =="Other Incomes"){
+                $('#oi1').removeClass("oi");
+                $('#oi1').addClass("show");
+           }else{
+                $('#oi1').removeClass("show");
+                $('#oi1').addClass("oi");
+            }
+            if(responseID =="Cost Of Goods"){
+                $('#cg1').removeClass("cg");
+                $('#cg1').addClass("show");
+           }else{
+                $('#cg1').removeClass("show");
+                $('#cg1').addClass("cg");
+            }
+            if(responseID =="Expenses"){
+                $('#ex1').removeClass("ex");
+                $('#ex1').addClass("show");
+           }else{
+                $('#ex1').removeClass("show");
+                $('#ex1').addClass("ex");
+            }
+           
            
             
             

@@ -884,7 +884,7 @@ class accounts(models.Model):
    
     
     acctype = models.CharField(max_length=100)
-    detype = models.CharField(max_length=100)
+   
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     gst = models.CharField(max_length=100, default='', null=True)

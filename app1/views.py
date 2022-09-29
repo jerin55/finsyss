@@ -886,7 +886,7 @@ def createaccount(request):
     
         cmp1 = company.objects.get(id=request.session["uid"])
         acctype = request.POST.get('acctype')
-        detype = request.POST.get('detype')
+        
         name = request.POST.get('name')
         description = request.POST.get('description')
         gst = request.POST.get('gst')
@@ -895,7 +895,7 @@ def createaccount(request):
         asof = request.POST.get('asof')
        
         
-        account = accounts(acctype=acctype, detype=detype, name=name, description=description,
+        account = accounts(acctype=acctype, name=name, description=description,
                                    gst=gst,
                                    deftaxcode=deftaxcode, balance=balance, asof=asof, cid=cmp1)
         account.save()
@@ -25591,10 +25591,23 @@ def deletestyle(request, customizeid):
 
 
 def bnnk(request):
-    g=accounts.objects.filter(acctype='Bank')
-    h=accounts.objects.filter(acctype='Petty cash')
-    i=accounts.objects.filter(acctype='Undeposited funds')
-    context={'g':g,'h':h,'i':i}
+    g=accounts.objects.filter(acctype='Current Liabilities')
+    h=accounts.objects.filter(acctype='Account Receivable')
+    i=accounts.objects.filter(acctype='Current Assets')
+    bnk=accounts.objects.filter(acctype='Bank')
+    fx=accounts.objects.filter(acctype='Fixed Assets')
+    nca=accounts.objects.filter(acctype='Non-Current Assets')
+    apy=accounts.objects.filter(acctype='Accounts Payable')
+    cd=accounts.objects.filter(acctype='Credit Card')
+    ncl=accounts.objects.filter(acctype='Non-Current Liabilities')
+    eq=accounts.objects.filter(acctype='Equity')
+    inc=accounts.objects.filter(acctype='Income')
+    oi=accounts.objects.filter(acctype='Other Incomes')
+    cg=accounts.objects.filter(acctype='Cost Of Goods')
+    ex=accounts.objects.filter(acctype='Expenses')
+
+    context={'g':g,'h':h,'i':i,'bnk':bnk,'fx':fx,'nca':nca,'apy':apy,'cd':cd,'ncl':ncl,'eq':eq,'inc':inc,
+    'oi':oi,'cg':cg,'ex':ex}
     return render(request,'app1/bnk.html',context)
 
 
